@@ -111,10 +111,10 @@ function renderPlaces(places) {
             //var newIndexI = audioIndex % audiofiles.length;
            // setModelsI(audiofiles[newIndexI], entity);
              const audio = document.querySelector('audio');
-            if(models[] == 1){
+            if(models[1]){
             audio.play();
                 audio.muted == false;
-            }else if(models[] == 2){
+            }else if(models[2]){
             audio.muted == true;
             }
             
