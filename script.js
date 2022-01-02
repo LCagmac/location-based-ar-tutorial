@@ -114,7 +114,7 @@ function renderPlaces(places) {
             if(modelIndex[0]){
             audio.play();
             }else{
-            audio.mute();
+            audio.muted == true;
             }
             
         });
