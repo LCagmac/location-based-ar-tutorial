@@ -41,19 +41,6 @@ var models = [
     },
 ];
 
-var audio = [
-  {
-    url: './assets/magnemite/5-Kick-C78.mp3',
-  },
-  {
-    url: './assets/articuno/alter.mp3',
-  },
-  {
-    url:'./assets/dragonite/8-SnareBritishVintage.mp3',
-  },
-];
-
-var audioIndex = 0;
 var modelIndex = 0;
 var setModel = function (model, entity) {
     if (model.scale) {
@@ -93,12 +80,11 @@ function renderPlaces(places) {
             modelIndex++;
             var newIndex = modelIndex % models.length;
             setModel(models[newIndex], entity);
-            audioIndex++;
-            var newIndexI = audioIndex % audio.length;
+             const audio = document.querySelector('audio');
+            audio.play();
         });
 
         scene.appendChild(model);
-        audio.volume = 1.0;
-        audio.play();
+
     });
 }
