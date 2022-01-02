@@ -111,7 +111,9 @@ function renderPlaces(places) {
             //var newIndexI = audioIndex % audiofiles.length;
            // setModelsI(audiofiles[newIndexI], entity);
              const audio = document.querySelector('audio');
+            if(modelIndex[0]){
             audio.play();
+            }
             
         });
 
