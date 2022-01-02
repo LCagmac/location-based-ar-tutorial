@@ -113,6 +113,8 @@ function renderPlaces(places) {
              const audio = document.querySelector('audio');
             if(modelIndex[0]){
             audio.play();
+            }else{
+            audio.mute();
             }
             
         });
