@@ -20,7 +20,7 @@ function staticLoadPlaces() {
     ];
 }
 
-var audiofiles = [
+/*var audiofiles = [
     {
     url: './assets/magnemite/5-Kick-C78.mp3',
         volume: '1',
@@ -31,7 +31,7 @@ var audiofiles = [
              {url: './assets/dragonite/8-SnareBritishVintage.mp3',
               volume: '1',
              },
-            ];
+            ];*/
 
 var models = [
     {
@@ -53,7 +53,7 @@ var models = [
         info: 'Dragonite, Lv. 99, HP 150/150',
     },
 ];
-var audioIndex = 0;
+//var audioIndex = 0;
 var modelIndex = 0;
 var setModel = function (model, entity) {
     if (model.scale) {
@@ -74,7 +74,7 @@ var setModel = function (model, entity) {
     div.innerText = model.info;
 };
 
-var setModelsI = function (audiofiles, entity) {
+/*var setModelsI = function (audiofiles, entity) {
     if (audiofiles.volume) {
         entity.setAttribute('volume', audiofiles.volume);
     }
@@ -83,7 +83,7 @@ var setModelsI = function (audiofiles, entity) {
 
     //const div = document.querySelector('.instructions');
     //div.innerText = audiofiles.info;
-};
+};*/
 
 function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
@@ -94,11 +94,11 @@ function renderPlaces(places) {
 
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        let audio = document.createElement('a-entity');
-        audio.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+       // let audio = document.createElement('a-entity');
+       // audio.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
 
         setModel(models[modelIndex], model);
-        setModelsI(audiofiles[audioIndex], audiofiles);
+       // setModelsI(audiofiles[audioIndex], audiofiles);
 
         model.setAttribute('animation-mixer', '');
 
@@ -107,16 +107,16 @@ function renderPlaces(places) {
             modelIndex++;
             var newIndex = modelIndex % models.length;
             setModel(models[newIndex], entity);
-            audioIndex++;
-            var newIndexI = audioIndex % audiofiles.length;
-            setModelsI(audiofiles[newIndexI], entity);
-             //const audio = document.querySelector('audio');
-            //audio.play();
+            //audioIndex++;
+            //var newIndexI = audioIndex % audiofiles.length;
+           // setModelsI(audiofiles[newIndexI], entity);
+             const audio = document.querySelector('audio');
+            audio.play();
             
         });
 
         scene.appendChild(model);
-        audiofiles.play();
+        //audiofiles.play();
 
     });
 }
